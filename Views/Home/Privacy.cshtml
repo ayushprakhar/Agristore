@@ -1,0 +1,97 @@
+﻿@model ProductDisplayModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style the sidebar */
+        /* Style the sidebar */
+        body div#mySidebar.sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            body div#mySidebar.sidebar a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                body div#mySidebar.sidebar a:hover {
+                    color: #f1f1f1;
+                }
+
+            body div#mySidebar.sidebar input.slider {
+                width: 100%;
+                height: 25px;
+                background: #d3d3d3;
+                outline: none;
+                opacity: 0.7;
+                transition: opacity .2s;
+            }
+
+                body div#mySidebar.sidebar input.slider::-webkit-slider-thumb {
+                    width: 25px;
+                    height: 25px;
+                    background: #4CAF50;
+                    cursor: pointer;
+                }
+    </style>
+</head>
+<body>
+
+    <div id="mySidebar" class="mysidebar">
+        <form asp-action="Index" class="row row-cols-lg-auto g-3 align-items-center">
+            <div class="col-12">
+                <label class="visually-hidden" for="CategoryId">Categories</label>
+                <select class="form-select" id="CategoryId" name="CategoryId">
+                    <option selected>Category</option>
+ @*                    @foreach (var Category in Model.Categories)
+                    {
+                        <option selected="@(Category.Id == Model.CategoryId)" value="@Category.Id">@Category.CategoryName</option>
+                    } *@
+                </select>
+            </div>
+
+            <div class="col-12">
+                <label class="visually-hidden" for="sterm">Search by title</label>
+                <div class="input-group">
+                    <div class="input-group-text"></div>
+@*                     <input type="text" class="form-control" value="@Model.STerm" id="sterm" name="sterm" placeholder="Sarch by title"> *@
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <a href="/Home/Index" class="btn btn-dark">Reset</a>
+            </div>
+        </form>
+        <input type="range" min="1" max="100" value="50" class="myslider" id="myRange">
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

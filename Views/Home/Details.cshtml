@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+@model AgriShoppingCartMvcUI.Models.Product
+
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+
+@* 
+<div>
+    <h2>@Model.ProductName</h2>
+    <div>
+        <strong>Brand:</strong> @Model.BrandName
+    </div>
+    <div>
+        <strong>Price:</strong> $@Model.Price
+    </div>
+    <div>
+        <strong>Category:</strong> @Model.CategoryName
+    </div>
+    @if (!string.IsNullOrEmpty(Model.Image))
+    {
+        <div>
+            <img src="@Model.Image" alt="Product Image" style="max-width: 100%; height: auto;"/>
+        </div>
+    }
+    <!-- Add other details you want to show about the product here -->
+</div> *@
+
+
+
+<div class="container mt-5 mb-5">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-6 border-end">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="main_image">
+                        <img src="/images/@Model.Image" id="main_product_image" width="350">
+                    </div>
+                    <div class="thumbnail_images">
+                        <ul id="thumbnail">
+                            <li><img onclick="changeImage(this)" src="/images/7h.jpg" width="70"></li>
+                            <li><img onclick="changeImage(this)" src="/images/2v.jpg" width="70"></li>
+                            <li><img onclick="changeImage(this)" src="/images/12.jpg" width="70"></li>
+                            <li><img onclick="changeImage(this)" src="/images/34.jpg" width="70"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 right-side">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3>@Model.ProductName</h3>
+                        <span class="heart"><i class='bx bx-heart'></i></span>
+                    </div>
+                    <div class="mt-2 pr-3 content">
+                        <p>@Model.BrandName</p>
+                        <p>Agri-Boost Fertilizer is a high-quality,
+                            scientifically formulated blend designed to enhance crop productivity and improve soil health.
+                            Whether you’re a small-scale farmer or managing large agricultural operations, 
+                            Agri-Boost provides essential nutrients and promotes sustainable farming practices.</p>
+                    </div>
+                    <h3 class="mb-1 me-1">@Model.Price.ToString("C")</h3>
+                    <div class="ratings d-flex flex-row align-items-center">
+                        <div class="d-flex flex-row">
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bx-star'></i>
+                        </div>
+                        <span>9 reviews</span>
+                    </div>
+                    <div class="mt-5">
+                        <span class="fw-bold">Color</span>
+                        <div class="colors">
+@*                             <ul id="marker">
+                                <li id="marker-1"></li>
+                                <li id="marker-2"></li>
+                                <li id="marker-3"></li>
+                                <li id="marker-4"></li>
+                                <li id="marker-5"></li>
+                            </ul> *@
+                        </div>
+                    </div>
+                    <div class="buttons d-flex flex-row mt-5 gap-3">
+                        <button class="btn btn-outline-dark">Buy Now</button>
+                        <button class="btn btn-dark">Add to Cart</button>
+                    </div>
+                    <div class="search-option">
+                        <i class='bx bx-search-alt-2 first-search'></i>
+                        <div class="inputs">
+                            <input type="text" name="">
+                        </div>
+                        <i class='bx bx-share-alt share'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<a href="@Url.Action("Index", "Home")">Back to list</a>
